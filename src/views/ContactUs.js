@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class ContactUs extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      phone: this.props.match.params.phone
+    } ;
+  }
   render(){
     return(
       <div>
-        <h2>Contact Us</h2>
-        <Link to='/'>
+        <h2>{"Gracias por contactarnos "+this.state.phone}</h2>
+        <Link to='/CP'>
           <p>Go back home</p>
         </Link>
       </div>
@@ -14,4 +21,7 @@ class ContactUs extends Component{
   }
 }
 
+ContactUs.propTypes={
+  match:PropTypes.any
+}
 export default ContactUs

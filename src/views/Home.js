@@ -5,14 +5,15 @@ import PropTypes from 'prop-types';
 class Home extends Component{
   constructor(props) {
     super(props);
-    this.state = '';
+    this.state = {
+      name: this.props.match.params.name
+    };
   }
   render(){
-    console.log(this.props.match);
     return(
       <div>
-        <h2>Home</h2>
-        <Link to='/contact-us'>
+        <h2>{"Welcome to home "+this.state.name}</h2>
+        <Link to='/contact-us/75013093'>
           <p>go to Contact Us</p>
         </Link>
       </div>
